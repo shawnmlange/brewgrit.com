@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brew Grit</title>
+<link rel="icon" type="image/png" href="img/favicon.png">
+<meta name="description" content="Shawn Lange: engineer, founder and operator. Robotic work cells for Apple, Tesla, SpaceX and more; founder of Lab2Fab, acquired by Middleby; seven U.S. patents.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Palette: the Brew Grit phoenix. True black ground, flame orange (#F05828, from the logo) as the single accent, warm paper-white text, ember grey for labels. */
+  --ink:#0b0b0c;        /* page background: logo black */
+  --ink-2:#151517;      /* raised panels */
+  --ink-3:#242427;      /* borders, rules */
+  --bone:#f1ece3;       /* primary text */
+  --bone-2:#a39e97;     /* secondary text */
+  --amber:#f05828;      /* accent: phoenix flame orange */
+  --gauge:#d99a7f;      /* secondary: ember, for type labels */
+  --font-display:"Barlow Condensed","Arial Narrow",Impact,sans-serif;
+  --font-body:"IBM Plex Sans",system-ui,-apple-system,Helvetica,Arial,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  /* Layout: engineering-drawing title blocks. Every section carries a mono revision strip; the work cells read as a parts catalog. */
+  --max:1180px;
+  --gutter:clamp(16px,4vw,48px);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--ink);color:var(--bone)}
+body{font-family:var(--font-body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{max-width:100%}
+h1,h2,h3{font-family:var(--font-display);text-wrap:balance;margin:0;line-height:1;text-transform:uppercase;letter-spacing:.01em}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.mono{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--bone-2)}
+.amber{color:var(--amber)}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:20;background:rgba(11,11,12,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--ink-3)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
+.wordmark{font-family:var(--font-display);font-weight:800;font-size:26px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;display:flex;align-items:center;gap:10px}
+.wordmark img{height:40px;width:auto;display:block}
+.nav ul{list-style:none;margin:0;padding:0;display:flex;gap:22px}
+.nav li a{text-decoration:none;font-family:var(--font-mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--bone-2)}
+.nav li a:hover{color:var(--amber)}
+@media (max-width:720px){.nav ul{display:none}}
+
+/* HERO */
+.hero{padding:clamp(48px,8vw,96px) 0 clamp(36px,5vw,64px);border-bottom:1px solid var(--ink-3);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;left:-6%;top:-10%;width:min(62vw,720px);aspect-ratio:1044/1200;background:url(img/logo.png) no-repeat center/contain;opacity:.07;pointer-events:none}
+.hero .wrap{position:relative}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,5vw,64px);align-items:center}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr}}
+.hero h1{font-size:clamp(56px,9vw,124px);font-weight:800;line-height:.9}
+.hero h1 span{display:block;color:var(--amber)}
+.lede{font-size:clamp(18px,1.6vw,21px);max-width:38ch;margin:28px 0 0;color:var(--bone)}
+.lede strong{font-weight:600}
+.cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+.btn{font-family:var(--font-mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:13px 20px;border:1px solid var(--bone-2);color:var(--bone)}
+.btn.primary{background:var(--amber);border-color:var(--amber);color:var(--ink);font-weight:500}
+.btn:hover{border-color:var(--amber)}
+.herofig{margin:0;position:relative;border:1px solid var(--ink-3);background:var(--ink-2)}
+.herofig img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;cursor:zoom-in}
+.herofig figcaption{position:absolute;left:0;right:0;bottom:0;padding:10px 14px;background:linear-gradient(transparent,rgba(11,11,12,.92));white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.herofig figcaption b{color:var(--amber);font-weight:500}
+@media (max-width:860px){.herofig img{aspect-ratio:4/3}}
+
+/* PHOTOS IN CARDS */
+.cell figure{margin:-22px -22px 4px;position:relative;background:var(--ink-2)}
+.cell figure img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;cursor:zoom-in;transition:filter .2s}
+.cell figure img:hover{filter:brightness(1.08)}
+.cell .thumbs{display:flex;gap:4px;padding:4px;background:var(--ink)}
+.cell .thumbs button{flex:1;padding:0;border:1px solid var(--ink-3);background:none;cursor:pointer;line-height:0;opacity:.6}
+.cell .thumbs button[aria-current="true"],.cell .thumbs button:hover{opacity:1;border-color:var(--amber)}
+.cell .thumbs img{width:100%;height:52px;object-fit:cover;display:block}
+.cell.todo figure{display:none}
+
+/* STORY PHOTO BAND */
+.band{display:grid;grid-template-columns:1.5fr 1.5fr 1fr 1fr;grid-auto-rows:210px;gap:6px;margin-top:48px}
+.band figure{margin:0;position:relative;overflow:hidden;background:var(--ink-2)}
+.band img{width:100%;height:100%;object-fit:cover;display:block;cursor:zoom-in;transition:transform .4s}
+.band figure:hover img{transform:scale(1.03)}
+.band figcaption{position:absolute;left:0;right:0;bottom:0;padding:8px 12px;background:linear-gradient(transparent,rgba(11,11,12,.9));font-family:var(--font-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--bone)}
+.band figure.big{grid-row:span 2}
+@media (max-width:760px){.band{grid-template-columns:1fr 1fr;grid-auto-rows:170px}.band figure.big{grid-row:span 1;grid-column:span 2}}
+@media (prefers-reduced-motion:reduce){.band img{transition:none}}
+
+/* LIGHTBOX */
+.lb{position:fixed;inset:0;background:rgba(0,0,0,.95);display:none;align-items:center;justify-content:center;z-index:50;padding:24px}
+.lb.open{display:flex}
+.lb img{max-width:100%;max-height:calc(100% - 60px);object-fit:contain;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.lb .cap{position:absolute;left:24px;right:24px;bottom:18px;display:flex;justify-content:space-between;gap:16px;font-size:14px;color:var(--bone-2)}
+.lb .cap b{color:var(--bone);font-weight:500}
+.lb button{position:absolute;top:14px;right:14px;background:none;border:1px solid var(--bone-2);color:var(--bone);font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;padding:8px 12px;cursor:pointer}
+.lb button:hover{border-color:var(--amber);color:var(--amber)}
+
+/* STAT STRIP */
+.stats{border-bottom:1px solid var(--ink-3);background:var(--ink-2)}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:22px 18px 20px;border-left:1px solid var(--ink-3)}
+.stat:first-child{border-left:0;padding-left:0}
+.stat b{display:block;font-family:var(--font-display);font-size:clamp(34px,4vw,52px);font-weight:700;line-height:1;color:var(--bone);font-variant-numeric:tabular-nums}
+.stat span{display:block;margin-top:6px}
+@media (max-width:720px){.stats .wrap{grid-template-columns:1fr 1fr}.stat:nth-child(3){border-left:0;padding-left:0}.stat{border-top:1px solid var(--ink-3)}.stat:nth-child(-n+2){border-top:0}}
+
+/* SECTIONS */
+section{padding:clamp(56px,7vw,96px) 0;border-bottom:1px solid var(--ink-3)}
+.titleblock{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:end;margin-bottom:36px;padding-bottom:14px;border-bottom:2px solid var(--bone)}
+.titleblock h2{font-size:clamp(36px,5vw,64px);font-weight:700}
+.titleblock .rev{text-align:right;line-height:1.7}
+.titleblock .rev b{color:var(--bone);font-weight:500}
+@media (max-width:560px){.titleblock{grid-template-columns:1fr}.titleblock .rev{text-align:left}}
+.intro{max-width:66ch;font-size:18px;color:var(--bone-2);margin:0 0 36px}
+.intro strong{color:var(--bone);font-weight:500}
+
+/* WORK CELL CATALOG */
+.cells{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--ink-3);border:1px solid var(--ink-3)}
+@media (max-width:980px){.cells{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.cells{grid-template-columns:1fr}}
+.cell{background:var(--ink);padding:22px 22px 24px;display:flex;flex-direction:column;gap:12px;min-height:250px;position:relative;transition:background .2s}
+.cell:hover{background:var(--ink-2)}
+.cell header{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.cell h3{font-size:30px;font-weight:700}
+.cell .num{font-family:var(--font-mono);font-size:12px;color:var(--amber);letter-spacing:.08em;white-space:nowrap}
+.cell .type{font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--gauge)}
+.cell p{margin:0;font-size:15.5px;color:var(--bone-2);flex:1}
+.cell .result{margin-top:auto;padding-top:12px;border-top:1px dashed var(--ink-3);font-size:14.5px;color:var(--bone)}
+.cell .result b{color:var(--amber);font-weight:600}
+.cell.todo{background:repeating-linear-gradient(135deg,var(--ink) 0 12px,#141416 12px 13px)}
+.cell.todo .result{color:var(--bone-2);font-style:italic}
+.cell.todo .result::before{content:"TO FILL IN  ";font-family:var(--font-mono);font-style:normal;font-size:11px;letter-spacing:.1em;color:var(--amber)}
+
+/* PRODUCTS */
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+@media (max-width:980px){.products{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.products{grid-template-columns:1fr 1fr}}
+.product{border:1px solid var(--ink-3);padding:18px;display:flex;flex-direction:column;gap:8px}
+.product h3{font-size:28px}
+.product .yr{font-family:var(--font-mono);font-size:12px;color:var(--amber);letter-spacing:.08em}
+.product p{margin:0;font-size:14.5px;color:var(--bone-2)}
+.product .award{font-size:13px;color:var(--bone);border-top:1px dashed var(--ink-3);padding-top:8px;margin-top:auto}
+
+/* PATENTS */
+.patents{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink-3)}
+.patents li{display:grid;grid-template-columns:170px 1fr 60px;gap:18px;padding:14px 0;border-bottom:1px solid var(--ink-3);align-items:baseline}
+.patents li a{text-decoration:none}
+.patents li a:hover{color:var(--amber)}
+.patents .no{font-family:var(--font-mono);font-size:14px;color:var(--amber);font-variant-numeric:tabular-nums}
+.patents .yr{font-family:var(--font-mono);font-size:13px;color:var(--bone-2);text-align:right}
+@media (max-width:600px){.patents li{grid-template-columns:1fr 60px}.patents .no{grid-column:1/-1}}
+.pending{margin-top:18px;font-size:15px;color:var(--bone-2);max-width:70ch}
+
+/* STORY / TIMELINE */
+.story{display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(28px,5vw,72px)}
+@media (max-width:860px){.story{grid-template-columns:1fr}}
+.grit p{font-size:18px;margin:0 0 18px;max-width:52ch}
+.grit p:first-of-type{font-size:22px;color:var(--bone)}
+.grit .pull{font-family:var(--font-display);font-size:clamp(34px,4vw,54px);font-weight:700;text-transform:uppercase;line-height:.95;margin:0 0 26px;color:var(--amber)}
+.timeline{list-style:none;margin:0;padding:0;border-left:2px solid var(--ink-3)}
+.timeline li{position:relative;padding:0 0 26px 26px}
+.timeline li::before{content:"";position:absolute;left:-7px;top:7px;width:12px;height:12px;background:var(--ink);border:2px solid var(--bone-2);transform:rotate(45deg)}
+.timeline li.key::before{background:var(--amber);border-color:var(--amber)}
+.timeline .when{font-family:var(--font-mono);font-size:12.5px;color:var(--amber);letter-spacing:.08em}
+.timeline h3{font-size:24px;margin:4px 0 4px;text-transform:none;letter-spacing:0}
+.timeline p{margin:0;font-size:15.5px;color:var(--bone-2);max-width:60ch}
+
+/* CONTACT */
+.contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+@media (max-width:760px){.contact .wrap{grid-template-columns:1fr}}
+.contact h2{font-size:clamp(44px,6vw,84px);font-weight:800}
+.contact h2 span{color:var(--amber)}
+.links{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink-3)}
+.links li{display:grid;grid-template-columns:110px 1fr;gap:12px;padding:16px 0;border-bottom:1px solid var(--ink-3);align-items:baseline}
+.links li a{text-decoration:none;font-size:18px}
+.links li a:hover{color:var(--amber)}
+
+/* FOOTER TITLE BLOCK */
+footer{padding:28px 0 40px}
+.tb{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--ink-3)}
+.tb div{padding:10px 14px;border-left:1px solid var(--ink-3);line-height:1.6}
+.tb div:first-child{border-left:0}
+.tb b{display:block;color:var(--bone);font-weight:500}
+@media (max-width:600px){.tb{grid-template-columns:1fr 1fr}.tb div:nth-child(3){border-left:0}.tb div:nth-child(n+3){border-top:1px solid var(--ink-3)}}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Site">
+  <div class="wrap">
+    <a class="wordmark" href="#top"><img src="img/logo.png" alt="">Brew Grit</a>
+    <ul>
+      <li><a href="#work">Work cells</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#patents">Patents</a></li>
+      <li><a href="#story">Story</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <p class="mono">Shawn M. Lange &nbsp;·&nbsp; Engineer, founder, operator &nbsp;·&nbsp; Silicon Valley, with 3+ years in Japan</p>
+      <h1>Lab to fab.<span>Idea to revenue.</span></h1>
+      <p class="lede">I build automated equipment and the businesses around them. Founder of <strong>Lab2Fab</strong>, the robotics firm that put work cells on the floor at Apple, Tesla and SpaceX and was acquired by The Middleby Corporation. Spent more than three years in Nagoya, Japan with <strong>Mitsubishi Electric</strong>. Named inventor on seven U.S. patents. Now leading go-to-market at <strong>Hyphen</strong>.</p>
+      <div class="cta">
+        <a class="btn primary" href="#work">See the work</a>
+        <a class="btn" href="https://www.linkedin.com/in/shawn-m-lange-63072411/">LinkedIn</a>
+      </div>
+    </div>
+    <figure class="herofig">
+      <img src="img/spacex-cell.jpg" alt="Robotic work cell built by Lab2Fab for SpaceX, with a six-axis arm over a rocket-nozzle fixture" data-cap="SpaceX work cell, Lab2Fab shop, Fremont">
+      <figcaption class="mono">L2F-003 · <b>SpaceX</b> work cell, pre-ship · Fremont</figcaption>
+    </figure>
+  </div>
+</header>
+
+<div class="stats" aria-label="By the numbers">
+  <div class="wrap">
+    <div class="stat"><b>7</b><span class="mono">Granted U.S. patents</span></div>
+    <div class="stat"><b>80</b><span class="mono">Robots in one factory, deployed in China</span></div>
+    <div class="stat"><b>1,000%</b><span class="mono">Revenue growth in the 3 years before acquisition</span></div>
+    <div class="stat"><b>1st</b><span class="mono">RIA-certified robot integrator in California</span></div>
+  </div>
+</div>
+
+<section id="work">
+  <div class="wrap">
+    <div class="titleblock">
+      <h2>Work cells, by client</h2>
+      <div class="rev mono">Lab2Fab · 2011 – 2017<br><b>Fremont, California</b></div>
+    </div>
+    <p class="intro">Lab2Fab took hardware out of the lab and onto the production floor: custom tooling, robotic work cells and full line integration for companies that needed to move at Silicon Valley speed. <strong>Aerospace, automotive, semiconductor, solar, pharma and food.</strong> Click any photo to enlarge. Striped cards are projects I'm still writing up.</p>
+
+    <div class="cells">
+      <article class="cell">
+        <figure><img src="img/tesla-door-cell.jpg" alt="Tesla: Comau robot with vision end-effector over a Model S door at the L2F shop" data-cap="Tesla: Comau robot with vision end-effector over a Model S door at the L2F shop"><div class="thumbs"><button type="button" aria-current="true" data-src="img/tesla-door-cell.jpg" data-cap="Tesla: Comau robot with vision end-effector over a Model S door at the L2F shop"><img src="img/tesla-door-cell.jpg" alt="" loading="lazy"></button><button type="button" aria-current="false" data-src="img/tesla-cell-interior.jpg" data-cap="Tesla assembly cell with twin FANUC LR Mate arms"><img src="img/tesla-cell-interior.jpg" alt="" loading="lazy"></button><button type="button" aria-current="false" data-src="img/tesla-dual-fanuc.jpg" data-cap="Tesla dual-robot turntable cell during build"><img src="img/tesla-dual-fanuc.jpg" alt="" loading="lazy"></button><button type="button" aria-current="false" data-src="img/tesla-badge.jpg" data-cap="Tesla-badged enclosure top"><img src="img/tesla-badge.jpg" alt="" loading="lazy"></button><button type="button" aria-current="false" data-src="img/tesla-factory-floor.jpg" data-cap="Commissioning a FANUC robot on the Tesla Fremont factory floor"><img src="img/tesla-factory-floor.jpg" alt="" loading="lazy"></button></div></figure>
+        <header><h3>Tesla</h3><span class="num">L2F-002</span></header>
+        <span class="type">Collaborative robotics · Automotive</span>
+        <p>Fence-less collaborative work cell using laser area scanners and machine intelligence so people and robots share the same floor space, plus a Tesla-badged twin-arm assembly cell.</p>
+        <div class="result"><b>First cobot cell</b> delivered to Tesla.</div>
+      </article>
+
+      <article class="cell">
+        <figure><img src="img/spacex-cell.jpg" alt="SpaceX robotic work cell with rocket-nozzle fixture, ready to ship" data-cap="SpaceX robotic work cell with rocket-nozzle fixture, ready to ship"><div class="thumbs"><button type="button" aria-current="true" data-src="img/spacex-cell.jpg" data-cap="SpaceX robotic work cell with rocket-nozzle fixture, ready to ship"><img src="img/spacex-cell.jpg" alt="" loading="lazy"></button><button type="button" aria-current="false" data-src="img/spacex-shipping.jpg" data-cap="SpaceX cell being loaded onto the truck at L2F"><img src="img/spacex-shipping.jpg" alt="" loading="lazy"></button></div></figure>
+        <header><h3>SpaceX</h3><span class="num">L2F-003</span></header>
+        <span class="type">Robotic process cell · Aerospace</span>
+        <p>Robotic system that took over a repetitive technician task on a flight-hardware process.</p>
+        <div class="result">Technician time on the task cut <b>in half</b>.</div>
+      </article>
+
+      <article class="cell">
+        <figure><img src="img/zume-abb-pizza.jpg" alt="ABB robot placing a pizza on the oven conveyor at Zume" data-cap="ABB robot placing a pizza on the oven conveyor at Zume"><div class="thumbs"><button type="button" aria-current="true" data-src="img/zume-abb-pizza.jpg" data-cap="ABB robot placing a pizza on the oven conveyor at Zume"><img src="img/zume-abb-pizza.jpg" alt="" loading="lazy"></button><button type="button" aria-current="false" data-src="img/zume-sauce.jpg" data-cap="Sauce dispensing head over dough on the Zume line"><img src="img/zume-sauce.jpg" alt="" loading="lazy"></button><button type="button" aria-current="false" data-src="img/zume-cell.jpg" data-cap="Zume-branded L2F stainless cell"><img src="img/zume-cell.jpg" alt="" loading="lazy"></button></div></figure>
+        <header><h3>Zume Pizza</h3><span class="num">L2F-004</span></header>
+        <span class="type">Robotic production line · Food</span>
+        <p>Robotic pizza production line for the venture-backed delivery concept, developed with CVM Inc. and deployed in roughly three months.</p>
+        <div class="result">Proved out the playbook that became <b>PizzaBot</b>.</div>
+      </article>
+
+      <article class="cell">
+        <figure><img src="img/cafex-kiosk.jpg" alt="Cafe X robotic barista kiosk under construction at L2F" data-cap="Cafe X robotic barista kiosk under construction at L2F"><div class="thumbs"><button type="button" aria-current="true" data-src="img/cafex-kiosk.jpg" data-cap="Cafe X robotic barista kiosk under construction at L2F"><img src="img/cafex-kiosk.jpg" alt="" loading="lazy"></button><button type="button" aria-current="false" data-src="img/cafex-kiosk-alt.jpg" data-cap="Cafe X kiosk on the L2F floor beside a Hyland's line"><img src="img/cafex-kiosk-alt.jpg" alt="" loading="lazy"></button></div></figure>
+        <header><h3>Cafe X</h3><span class="num">L2F-005</span></header>
+        <span class="type">Robotic kiosk · Food &amp; beverage</span>
+        <p>Robotic barista kiosk, built with a San Francisco industrial design firm to consumer-electronics finish standards on an industrial machine.</p>
+        <div class="result">Multiple product generations shipped; <b>industrial automation made beautiful.</b></div>
+      </article>
+
+      <article class="cell">
+        <figure><img src="img/amat-wafer-tool.jpg" alt="Wafer-handling tool built for Applied Materials" data-cap="Wafer-handling tool built for Applied Materials"><div class="thumbs"><button type="button" aria-current="true" data-src="img/amat-wafer-tool.jpg" data-cap="Wafer-handling tool built for Applied Materials"><img src="img/amat-wafer-tool.jpg" alt="" loading="lazy"></button><button type="button" aria-current="false" data-src="img/amat-wafer-detail.jpg" data-cap="Wafer carrier detail on the Applied Materials tool"><img src="img/amat-wafer-detail.jpg" alt="" loading="lazy"></button></div></figure>
+        <header><h3>Applied Materials</h3><span class="num">L2F-009</span></header>
+        <span class="type">Wafer-handling tool · Semiconductor equipment</span>
+        <p>Custom wafer-handling tool built for Applied Materials, from frame and cabinet to controls and HMI.</p>
+        <div class="result">Add what it automated and the result.</div>
+      </article>
+
+      <article class="cell">
+        <figure><img src="img/kittyhawk-coil-winder.jpg" alt="Coil-winding cell for Zee.Aero / Kitty Hawk with ABB robot and Litz wire spool" data-cap="Coil-winding cell for Zee.Aero / Kitty Hawk with ABB robot and Litz wire spool"></figure>
+        <header><h3>Kitty Hawk</h3><span class="num">L2F-006</span></header>
+        <span class="type">Coil-winding machine · eVTOL aircraft</span>
+        <p>Electric-motor coil winding machine for Zee.Aero, the Larry Page-backed aircraft company that became Kitty Hawk. The system winds motor coils with Litz wire.</p>
+        <div class="result">Faster iteration on <b>electric propulsion prototypes</b>.</div>
+      </article>
+
+      <article class="cell">
+        <figure><img src="img/cogenra-inspection.jpg" alt="Red-light vision inspection station on the Cogenra Solar system" data-cap="Red-light vision inspection station on the Cogenra Solar system"></figure>
+        <header><h3>Cogenra Solar</h3><span class="num">L2F-007</span></header>
+        <span class="type">Pick-and-place · Solar</span>
+        <p>Pick-and-place robotic system with machine vision for solar cell production at Cogenra, later acquired by SunPower.</p>
+        <div class="result">Automated a manual cell-handling step for <b>volume production</b>.</div>
+      </article>
+
+      <article class="cell">
+        <header><h3>Apple</h3><span class="num">L2F-001</span></header>
+        <span class="type">High-volume assembly · Consumer electronics</span>
+        <p>Robotic assembly deployed into an iPad mini factory in China. Also built an automated micro-LED work cell for LuxVue, the display startup Apple later acquired.</p>
+        <div class="result"><b>80 robots</b> commissioned and running in a single plant.</div>
+      </article>
+
+      <article class="cell todo">
+        <header><h3>Blommer Chocolate</h3><span class="num">L2F-010</span></header>
+        <span class="type">Automation project · Food manufacturing</span>
+        <p>Automation work for Blommer Chocolate Company, North America's largest cocoa processor.</p>
+        <div class="result">Add the cell type, what it automated and the result.</div>
+      </article>
+
+      <article class="cell todo">
+        <header><h3>PayPal</h3><span class="num">L2F-008</span></header>
+        <span class="type">Automation project · Fintech</span>
+        <p>Automation work for PayPal.</p>
+        <div class="result">Add the cell type, what it automated and the result.</div>
+      </article>
+
+      <article class="cell todo">
+        <header><h3>Maruchan</h3><span class="num">L2F-011</span></header>
+        <span class="type">Automation project · Food manufacturing</span>
+        <p>Automation work for Maruchan's instant-noodle production.</p>
+        <div class="result">Add the cell type, what it automated and the result.</div>
+      </article>
+
+      <article class="cell todo">
+        <header><h3>Novartis</h3><span class="num">L2F-012</span></header>
+        <span class="type">Automation project · Pharmaceuticals</span>
+        <p>Automation work for Novartis Pharmaceuticals.</p>
+        <div class="result">Add the cell type, what it automated and the result.</div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="products">
+  <div class="wrap">
+    <div class="titleblock">
+      <h2>Products shipped at Middleby</h2>
+      <div class="rev mono">Division President · 2017 – 2025<br><b>Middleby Automation</b></div>
+    </div>
+    <p class="intro">After the acquisition, Lab2Fab became Middleby's automation arm. I ran it with full P&amp;L and took four products from concept to commercial release, selling into quick-service, fast-casual, concessions and grocery.</p>
+    <div class="products">
+      <article class="product"><span class="yr">2020</span><h3>Skyflo Pro</h3><p>Connected liquor-pour control and monitoring. Inherited at acquisition, rebuilt with IoT and analytics.</p></article>
+      <article class="product"><span class="yr">2020</span><h3>PizzaBot</h3><p>Enclosed, refrigerated robotic pizza assembly. Sauce, cheese and sliced-to-order pepperoni in under a minute.</p><div class="award">Sam's Club contract in year one.</div></article>
+      <article class="product"><span class="yr">2022</span><h3>FryBot</h3><p>Robotic fry station with presence sensing. Keeps people away from 400° oil and keeps the baskets moving.</p><div class="award">National Restaurant Association Kitchen Innovation Award, 2023.</div></article>
+      <article class="product"><span class="yr">2024</span><h3>FizzBot</h3><p>Automated multi-beverage dispenser with self-cleaning, developed for Yum! Brands.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="patents">
+  <div class="wrap">
+    <div class="titleblock">
+      <h2>Patents</h2>
+      <div class="rev mono">Named inventor<br><b>7 granted · 6 pending</b></div>
+    </div>
+    <ul class="patents">
+      <li><span class="no">US 12,258,256</span><a href="https://patents.google.com/patent/US12258256B2/en">Connected and automated liquid dispensing attachment</a><span class="yr">2025</span></li>
+      <li><span class="no">US 12,129,164</span><a href="https://patents.google.com/patent/US12129164B2/en">Automated pizza assembly system</a><span class="yr">2024</span></li>
+      <li><span class="no">US 11,882,964</span><a href="https://patents.google.com/patent/US11882964B2/en">Automated frying system</a><span class="yr">2024</span></li>
+      <li><span class="no">US 11,858,748</span><a href="https://patents.google.com/patent/US11858748B2/en">Automated food delivery</a><span class="yr">2024</span></li>
+      <li><span class="no">US 11,685,641</span><a href="https://patents.google.com/patent/US11685641B2/en">Modular automated food preparation system</a><span class="yr">2023</span></li>
+      <li><span class="no">US 11,673,788</span><a href="https://patents.google.com/patent/US11673788B2/en">Beverage dispensing and monitoring system</a><span class="yr">2023</span></li>
+      <li><span class="no">US 11,247,891</span><a href="https://patents.google.com/patent/US11247891B1/en">Connected and automated liquid dispensing attachment</a><span class="yr">2022</span></li>
+    </ul>
+    <p class="pending">Pending: robotic frying system, automated multi-beverage dispenser with self-cleaning, capacitive sensing for beverage dispensers, component systems for automated cooking, transfer module, and an integrated front-of-house and back-of-house restaurant automation system.</p>
+  </div>
+</section>
+
+<section id="story">
+  <div class="wrap">
+    <div class="titleblock">
+      <h2>The story</h2>
+      <div class="rev mono">1996 – present<br><b>Flint · San Jose · Nagoya · Fremont</b></div>
+    </div>
+    <div class="story">
+      <div class="grit">
+        <p class="pull">Grit is the part of the spec nobody writes down.</p>
+        <p>Every project on this page ran in the red until the customer signed off on the factory floor. Innovation at that pace is cash-flow, nerve and a team that keeps showing up.</p>
+        <p>I started as a Kettering co-op at Electroglas in 1996, six months in class and six months on the factory floor every year for five years, and I have never stopped working with my hands. Two engineering degrees from Kettering, a master's in robotics and controls earned part-time at Santa Clara, more than three years inside Mitsubishi Electric's motion-control group in Nagoya, and then fourteen years building Lab2Fab from an idea to an acquisition.</p>
+        <p>The through-line is the same: find the hard physical problem, build the thing that solves it, and then build the business that pays for it.</p>
+      </div>
+      <ol class="timeline">
+        <li><span class="when">1996 – 2001</span><h3>Kettering University, with Electroglas co-op</h3><p>Kettering's co-op program: six months a year in Flint on the BSEE and BSME, six months a year at Electroglas in San Jose, rotating through IT, field service, manufacturing engineering, supplier development and product engineering. Graduated March 2001.</p></li>
+        <li><span class="when">2001 – 2003</span><h3>Electroglas, full time</h3><p>Electrical and controls engineer on 200 and 300 mm wafer inspection systems. Designed the motion control for a sub-micron, 3 m/s linear-motor gantry and led a joint gantry project with Adept Robotics.</p></li>
+        <li><span class="when">2002 – 2006</span><h3>Santa Clara University, MSME</h3><p>Master's in mechanical engineering, concentrating in robotics, mechatronics and control theory. Mostly part-time while working; one year full-time.</p></li>
+        <li><span class="when">2004 – 2005</span><h3>Western Technology Marketing (acquired by Valin, 2007)</h3><p>Territory sales manager for motion control and automation, San Jose to the Oregon border, with key accounts at Medtronic, Abbott, Genentech, Stanford and SLAC. Inherited a territory whose top three accounts, about 30% of sales, were moving production offshore; refocused on major accounts and OEMs and grew revenue 45% year over year at one of the highest margins in the company. Won back a previously mismanaged account that became a company top-10 account.</p></li>
+        <li class="key"><span class="when">2005 – 2011</span><h3>Mitsubishi Electric, San Jose and Nagoya</h3><p>Sales engineer in San Jose, then more than three years at headquarters in Nagoya, Japan, developing motion-control products for global markets and writing the spec for the company's first EtherCAT motion solution. Returned to lead strategic sales into solar and battery manufacturing.</p></li>
+        <li class="key"><span class="when">2011</span><h3>Founded Lab2Fab</h3><p>With co-founder Derek Pietz. First and only RIA-certified robot integrator in California. Raised close to $5M.</p></li>
+        <li><span class="when">2016</span><h3>Inc. 5000</h3><p>Ranked the #2 engineering firm in the country on growth. Revenue up more than 1,000% in three years.</p></li>
+        <li class="key"><span class="when">2017</span><h3>Acquired by The Middleby Corporation</h3><p>Lab2Fab became the innovation arm of the world's largest commercial food-equipment company (NASDAQ: MIDD). Ran it as Division President for eight years.</p></li>
+        <li><span class="when">2016 – present</span><h3>Santa Clara University</h3><p>Adjunct lecturer in business and engineering. Advisory board, Center for Innovation and Entrepreneurship. Mentor in the California Program for Entrepreneurship.</p></li>
+        <li><span class="when">2025 – 2026</span><h3>Beckhoff Automation USA</h3><p>Regional Director, Northwest. Grew the region at more than 50% compound annual growth across semiconductor, robotics and energy accounts.</p></li>
+        <li class="key"><span class="when">2026 – present</span><h3>Hyphen</h3><p>SVP, Go-to-Market at the Series A company automating restaurant makelines. Investor and advisor to early-stage hardware founders through Santa Clara Ventures, the JECA Fund and Plug and Play.</p></li>
+      </ol>
+    </div>
+    <div class="band" aria-label="Photos from the Lab2Fab years">
+      <figure class="big"><img src="img/eoat-laser.jpg" alt="Robot end-of-arm tooling with laser line projector lit" data-cap="End-of-arm tooling with laser line, L2F shop"><figcaption>End-of-arm tooling, laser on</figcaption></figure>
+      <figure class="big"><img src="img/robot-lab.jpg" alt="L2F robot lab with Rethink Baxter, Universal Robots and KUKA iiwa arms" data-cap="The L2F robot lab: Baxter, UR and KUKA iiwa"><figcaption>The lab: Baxter, UR, KUKA iiwa</figcaption></figure>
+      <figure><img src="img/shop-floor.jpg" alt="L2F shop floor with several robot cells under construction" data-cap="L2F shop floor, several cells in build"><figcaption>Fremont shop floor</figcaption></figure>
+      <figure><img src="img/inc500.jpg" alt="Framed Inc. 500 plaque, L2F, 2016, No. 237" data-cap="Inc. 500, 2016: L2F ranked No. 237 overall, No. 2 among engineering firms"><figcaption>Inc. 500, 2016</figcaption></figure>
+      <figure><img src="img/l2f-logo-panel.jpg" alt="L2F logo cut through a white machine panel" data-cap="L2F logo cut into a machine panel"><figcaption>Cut into every machine</figcaption></figure>
+      <figure><img src="img/blommer-chocolate.jpg" alt="Shawn Lange biting a ten-pound slab of Blommer chocolate" data-cap="Quality control on the Blommer Chocolate project"><figcaption>Blommer QC, personally</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div>
+      <h2>Building something physical?<span> Let's talk.</span></h2>
+      <p class="intro" style="margin-top:20px">Advisory, speaking, board roles and the occasional hard automation problem. Based in the East Bay, often in Japan.</p>
+    </div>
+    <ul class="links">
+      <li><span class="mono">Email</span><a href="mailto:shawn@brewgrit.com">shawn@brewgrit.com</a></li>
+      <li><span class="mono">LinkedIn</span><a href="https://www.linkedin.com/in/shawn-m-lange-63072411/">linkedin.com/in/shawn-m-lange-63072411</a></li>
+      <li><span class="mono">Patents</span><a href="https://patents.google.com/?inventor=Shawn+Lange&assignee=Lab2Fab">Google Patents</a></li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="tb mono">
+      <div><img src="img/brewgrit-wordmark.png" alt="Brew Grit" style="height:56px;width:auto;display:block;margin:4px 0 8px">Drawing<b>BREWGRIT.COM</b></div>
+      <div>Drawn by<b>Shawn M. Lange</b></div>
+      <div>Rev<b>B · Photos, brand</b></div>
+      <div>Date<b>2026-11-06</b></div>
+    </div>
+  </div>
+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button type="button" id="lbClose">Close  Esc</button>
+  <img id="lbImg" src="" alt="">
+  <div class="cap"><b id="lbCap"></b><span class="mono">Lab2Fab · 2011 – 2017</span></div>
+</div>
+<script>
+(function(){
+  var lb=document.getElementById('lb'),img=document.getElementById('lbImg'),cap=document.getElementById('lbCap');
+  function open(src,text){img.src=src;img.alt=text||'';cap.textContent=text||'';lb.classList.add('open');document.body.style.overflow='hidden';}
+  function close(){lb.classList.remove('open');img.src='';document.body.style.overflow='';}
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('.thumbs button');
+    if(b){var f=b.closest('figure'),m=f.querySelector(':scope > img');m.src=b.dataset.src;m.dataset.cap=b.dataset.cap;m.alt=b.dataset.cap;
+      f.querySelectorAll('.thumbs button').forEach(function(x){x.setAttribute('aria-current',x===b?'true':'false')});return;}
+    var t=e.target;
+    if(t.tagName==='IMG'&&t.dataset.cap&&!t.closest('.lb')){open(t.src,t.dataset.cap);return;}
+    if(t===lb||t.id==='lbClose'){close();}
+  });
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('open'))close();});
+})();
+</script>
+</body>
+</html>
