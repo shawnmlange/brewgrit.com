@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Brew Grit</title>
+<title>Brew Grit · Fractional executives for hardware and robotics founders</title>
 <link rel="icon" type="image/png" href="img/favicon.png">
-<meta name="description" content="Shawn Lange: engineer, founder and operator. Robotic work cells for Apple, Tesla, SpaceX and more; founder of Lab2Fab, acquired by Middleby; seven U.S. patents.">
+<meta name="description" content="Brew Grit is a fractional-executive practice for hardware and robotics founders, pre-seed to Series B. Lab to fab, idea to revenue. Led by Chief Grit Officer Shawn Lange, founder of Lab2Fab (acquired by Middleby).">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -154,6 +154,18 @@ section{padding:clamp(56px,7vw,96px) 0;border-bottom:1px solid var(--ink-3)}
 .product .yr{font-family:var(--font-mono);font-size:12px;color:var(--amber);letter-spacing:.08em}
 .product p{margin:0;font-size:14.5px;color:var(--bone-2)}
 .product .award{font-size:13px;color:var(--bone);border-top:1px dashed var(--ink-3);padding-top:8px;margin-top:auto}
+.svc .seat{font-family:var(--font-mono);font-size:12px;color:var(--amber);letter-spacing:.08em}
+.svc h3{font-size:26px;line-height:1.05}
+.svc ul{margin:0;padding-left:16px;color:var(--bone-2);font-size:14.5px}
+.svc li{margin-bottom:5px}
+.svc .proof{font-size:13px;color:var(--bone);border-top:1px dashed var(--ink-3);padding-top:8px;margin-top:auto}
+.svc .proof span{color:var(--amber);font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;display:block;margin-bottom:3px}
+.ways{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--ink-3);margin-top:28px}
+.ways div{padding:16px 18px;border-left:1px solid var(--ink-3)}
+.ways div:first-child{border-left:0}
+.ways b{display:block;font-family:var(--font-display);font-size:22px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--bone);margin-bottom:4px}
+.ways p{margin:0;font-size:14.5px;color:var(--bone-2);line-height:1.5}
+@media (max-width:760px){.ways{grid-template-columns:1fr 1fr}.ways div:nth-child(odd){border-left:0}.ways div:nth-child(n+3){border-top:1px solid var(--ink-3)}}
 .product .award a,.product p a,.cell .result a,.stat a{color:inherit;text-decoration:underline;text-decoration-color:var(--ink-3);text-underline-offset:3px}
 .product .award a:hover,.product p a:hover,.cell .result a:hover,.stat a:hover{color:var(--amber);text-decoration-color:var(--amber)}
 .product .vid{display:block;position:relative;margin:-18px -18px 6px;aspect-ratio:16/9;overflow:hidden;background:var(--ink-2);border-bottom:1px solid var(--ink-3)}
@@ -230,11 +242,11 @@ footer{padding:28px 0 40px}
   <div class="wrap">
     <a class="wordmark" href="#top"><img class="mark" src="img/logo.png" alt=""><img class="word" src="img/brewgrit-text-white.png" alt="Brew Grit"></a>
     <ul>
-      <li><a href="#work">Work cells</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#work">Case studies</a></li>
       <li><a href="#products">Products</a></li>
-      <li><a href="#now">Now</a></li>
       <li><a href="#patents">Patents</a></li>
-      <li><a href="#story">Story</a></li>
+      <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -243,12 +255,13 @@ footer{padding:28px 0 40px}
 <header class="hero" id="top">
   <div class="wrap">
     <div>
-      <p class="mono">Shawn M. Lange &nbsp;·&nbsp; Engineer, founder, operator &nbsp;·&nbsp; Silicon Valley, with 3+ years in Japan</p>
+      <p class="mono">Brew Grit &nbsp;·&nbsp; Fractional executives for hardware &amp; robotics founders &nbsp;·&nbsp; Silicon Valley &amp; Japan</p>
       <h1>Lab to fab.<span>Idea to revenue.</span></h1>
-      <p class="lede">I build automated equipment and the businesses around them. Founder of <strong>Lab2Fab</strong>, the robotics firm that put work cells on the floor at Apple, Tesla and SpaceX and was acquired by The Middleby Corporation. Spent more than three years in Nagoya, Japan with <strong>Mitsubishi Electric</strong>. Named inventor on seven U.S. patents. Now leading go-to-market at <strong>Hyphen</strong>.</p>
+      <p class="lede">Brew Grit puts an operator who has done the job into whatever seat your company needs right now: <strong>engineering, revenue, fundraising or hiring</strong>. Chief Grit Officer <strong>Shawn Lange</strong> founded Lab2Fab, built the robotic work cells on the floor at Apple, Tesla and SpaceX, sold the company to The Middleby Corporation and ran it as a division for eight years. Pre-seed to Series B, prototype to production, first customer to repeatable revenue.</p>
       <div class="cta">
-        <a class="btn primary" href="#work">See the work</a>
-        <a class="btn" href="https://www.linkedin.com/in/shawn-m-lange-63072411/">LinkedIn</a>
+        <a class="btn primary" href="mailto:shawn@brewgrit.com?subject=Intro%20call%20with%20Brew%20Grit">Book an intro call</a>
+        <a class="btn" href="#services">What we do</a>
+        <a class="btn" href="#work">See the work</a>
       </div>
     </div>
     <figure class="herofig">
@@ -267,13 +280,51 @@ footer{padding:28px 0 40px}
   </div>
 </div>
 
+<section id="services">
+  <div class="wrap">
+    <div class="titleblock">
+      <h2>Fractional, in whatever seat you need</h2>
+      <div class="rev mono">Fractional CXO · Pre-seed to Series B<br><b>Hardware &amp; robotics</b></div>
+    </div>
+    <p class="intro">Founders play every role until they can afford to hire for it. Brew Grit fills the gap with an executive who has actually held the seat: three engineering degrees, a company founded, scaled and sold, eight years running a division inside a public company. <strong>Tell us where it hurts this quarter and that is where we start.</strong></p>
+    <div class="products">
+      <article class="product svc">
+        <span class="seat">Fractional CRO / CGO</span><h3>Topline revenue</h3>
+        <ul><li>First enterprise customers and the pilots that convert</li><li>Pricing, proposals and deal structure for capital equipment</li><li>A GTM system that runs: CRM, enrichment, quoting, forecasting</li><li>Channel, distribution and OEM partnerships, including Japan</li></ul>
+        <div class="proof"><span>Proof</span>L2F revenue up 1,000% in three years. Hyphen's GTM stack built from zero.</div>
+      </article>
+      <article class="product svc">
+        <span class="seat">Fractional CTO / VP Engineering</span><h3>Tough automation systems</h3>
+        <ul><li>Prototype to production: DFM, controls, safety, certification (NSF, UL, RIA)</li><li>Robotic work-cell and line architecture, vendor and integrator selection</li><li>Design reviews with someone who has shipped to Tesla and SpaceX</li><li>Hands-on when it counts: commissioning weekends included</li></ul>
+        <div class="proof"><span>Proof</span>Twelve client work cells below. Seven U.S. patents.</div>
+      </article>
+      <article class="product svc">
+        <span class="seat">Fractional COO / Chief of Staff</span><h3>Fundraising &amp; talent</h3>
+        <ul><li>Investor narrative, model and data room for hardware rounds</li><li>Recruiting the first engineers, sellers and plant people</li><li>Board and investor cadence that does not eat the founder's week</li><li>Exit readiness: what an acquirer like Middleby actually diligences</li></ul>
+        <div class="proof"><span>Proof</span>Raised close to $5M, sold to NASDAQ: MIDD, ran the division post-close.</div>
+      </article>
+      <article class="product svc">
+        <span class="seat">Advisor / Board</span><h3>A founder in your corner</h3>
+        <ul><li>Monthly operating reviews with someone who has sat in your chair</li><li>Introductions across robotics, food-tech, semis and Japanese industry</li><li>Second opinion before the big hire, the big PO or the term sheet</li><li>Available for equity on the right early-stage team</li></ul>
+        <div class="proof"><span>Proof</span>Investor and advisor through Santa Clara Ventures, the JECA Fund and Plug and Play.</div>
+      </article>
+    </div>
+    <div class="ways" aria-label="How we work">
+      <div><b>Fractional seat</b><p>Monthly retainer, one to three days a week, a title on the org chart and the accountability that goes with it.</p></div>
+      <div><b>Fixed scope</b><p>A defined deliverable with a start and an end: a GTM build, a DFM review, a pilot-to-production plan, a data room.</p></div>
+      <div><b>Advisor for equity</b><p>Light-touch, long-term, for early teams we believe in.</p></div>
+      <div><b>Start with a call</b><p>Thirty minutes, no deck. If Brew Grit is not the right fit we will say so and point you to someone who is.</p></div>
+    </div>
+  </div>
+</section>
+
 <section id="work">
   <div class="wrap">
     <div class="titleblock">
-      <h2>Work cells, by client</h2>
-      <div class="rev mono">Lab2Fab · 2011 – 2017<br><b>Fremont, California</b></div>
+      <h2>Case studies: the Lab2Fab years</h2>
+      <div class="rev mono">Lab2Fab · 2011 – 2017 · Fremont, California<br><b>Founded and led by the CGO</b></div>
     </div>
-    <p class="intro">Lab2Fab took hardware out of the lab and onto the production floor: custom tooling, robotic work cells and full line integration for companies that needed to move at Silicon Valley speed. <strong>Aerospace, automotive, semiconductor, solar, pharma and food.</strong> Click any photo to enlarge.</p>
+    <p class="intro">Before Brew Grit there was Lab2Fab, the robot integrator Shawn co-founded to take hardware out of the lab and onto the production floor: custom tooling, robotic work cells and full line integration for companies that needed to move at Silicon Valley speed. <strong>Aerospace, automotive, semiconductor, solar, pharma and food.</strong> This is the body of work behind the advice. Click any photo to enlarge.</p>
 
     <div class="cells">
       <article class="cell">
@@ -288,7 +339,7 @@ footer{padding:28px 0 40px}
         <figure><img src="img/apple-gantry-cell.jpg" alt="Prototype iPad mini test cell taking shape in the L2F shop" data-cap="Prototype iPad mini test cell taking shape in the L2F shop"><div class="thumbs"><button type="button" aria-current="true" data-src="img/apple-gantry-cell.jpg" data-cap="Prototype iPad mini test cell taking shape in the L2F shop"><img src="img/apple-gantry-cell.jpg" alt="" loading="lazy"></button><button type="button" aria-current="false" data-src="img/apple-robot-dev.jpg" data-cap="Mitsubishi MELFA arm on its development cart, early in the iPad mini program"><img src="img/apple-robot-dev.jpg" alt="" loading="lazy"></button></div></figure>
         <header><h3>Apple</h3><span class="num">L2F-001</span></header>
         <span class="type">Test and measurement, final QC · Consumer electronics</span>
-        <p>Final test-and-measurement cells for iPad mini: the last QC station before a unit ships. The handling could not leave a scratch, the cells ran on a live line beside human operators, and the vision had to ignore whatever else came down the belt, gum wrappers included, and react only to iPads. Mechanical design by co-founder <a href="https://www.linkedin.com/in/derek-pietz-7915062/">Derek Pietz</a>; most of the controls by me. Also built an automated micro-LED work cell for LuxVue, the display startup Apple later acquired.</p>
+        <p>Final test-and-measurement cells for iPad mini: the last QC station before a unit ships. The handling could not leave a scratch, the cells ran on a live line beside human operators, and the vision had to ignore whatever else came down the belt, gum wrappers included, and react only to iPads. Mechanical design by co-founder <a href="https://www.linkedin.com/in/derek-pietz-7915062/">Derek Pietz</a>; most of the controls by Shawn. Also built an automated micro-LED work cell for LuxVue, the display startup Apple later acquired.</p>
         <div class="result"><b>80 robots</b> commissioned in a single plant, inspecting iPads next to people.</div>
       </article>
 
@@ -349,11 +400,11 @@ footer{padding:28px 0 40px}
       </article>
 
       <article class="cell">
-        <figure><img src="img/cogenra-vision-head.jpg" alt="Cogenra pick-and-place: Mitsubishi MELFA RH-3FHR SCARA with twin Cognex vision cameras" data-cap="Cogenra pick-and-place: Mitsubishi MELFA RH-3FHR SCARA with twin Cognex vision cameras"><div class="thumbs"><button type="button" aria-current="true" data-src="img/cogenra-vision-head.jpg" data-cap="Cogenra pick-and-place: Mitsubishi MELFA RH-3FHR SCARA with twin Cognex vision cameras"><img src="img/cogenra-vision-head.jpg" alt="" loading="lazy"></button><button type="button" aria-current="false" data-src="img/cogenra-cell.jpg" data-cap="The Cogenra cell in final build on the L2F floor"><img src="img/cogenra-cell.jpg" alt="" loading="lazy"></button><button type="button" aria-current="false" data-src="img/cogenra-peter-so.jpg" data-cap="Peter So dialing in cell placement on the Cogenra system"><img src="img/cogenra-peter-so.jpg" alt="" loading="lazy"></button><button type="button" aria-current="false" data-src="img/cogenra-jos-peter.jpg" data-cap="Jos Goble and Peter So on the Cogenra build, with the desk plant that kept everyone calm. A tough project the three of us pulled off together."><img src="img/cogenra-jos-peter.jpg" alt="" loading="lazy"></button><button type="button" aria-current="false" data-src="img/cogenra-shawn.jpg" data-cap="Me at the bench on the Cogenra project, cell behind"><img src="img/cogenra-shawn.jpg" alt="" loading="lazy"></button><button type="button" aria-current="false" data-src="img/cogenra-inspection.jpg" data-cap="Red-light vision inspection station on the Cogenra Solar system"><img src="img/cogenra-inspection.jpg" alt="" loading="lazy"></button><button type="button" aria-current="false" data-src="img/cogenra-whiteboard.jpg" data-cap="The whiteboard: on-the-fly placement correction from two camera fields of view, solving the offset vector between reference and found cell positions"><img src="img/cogenra-whiteboard.jpg" alt="" loading="lazy"></button><button type="button" aria-current="false" data-src="img/cogenra-running-poster.jpg" data-cap="The Cogenra system running: SCARA placing cells under the red inspection lights (video, 51 s)" data-video="img/cogenra-running.mp4"><img src="img/cogenra-running-poster.jpg" alt="" loading="lazy"></button></div></figure>
+        <figure><img src="img/cogenra-vision-head.jpg" alt="Cogenra pick-and-place: Mitsubishi MELFA RH-3FHR SCARA with twin Cognex vision cameras" data-cap="Cogenra pick-and-place: Mitsubishi MELFA RH-3FHR SCARA with twin Cognex vision cameras"><div class="thumbs"><button type="button" aria-current="true" data-src="img/cogenra-vision-head.jpg" data-cap="Cogenra pick-and-place: Mitsubishi MELFA RH-3FHR SCARA with twin Cognex vision cameras"><img src="img/cogenra-vision-head.jpg" alt="" loading="lazy"></button><button type="button" aria-current="false" data-src="img/cogenra-cell.jpg" data-cap="The Cogenra cell in final build on the L2F floor"><img src="img/cogenra-cell.jpg" alt="" loading="lazy"></button><button type="button" aria-current="false" data-src="img/cogenra-peter-so.jpg" data-cap="Peter So dialing in cell placement on the Cogenra system"><img src="img/cogenra-peter-so.jpg" alt="" loading="lazy"></button><button type="button" aria-current="false" data-src="img/cogenra-jos-peter.jpg" data-cap="Jos Goble and Peter So on the Cogenra build, with the desk plant that kept everyone calm. A tough project the three of us pulled off together."><img src="img/cogenra-jos-peter.jpg" alt="" loading="lazy"></button><button type="button" aria-current="false" data-src="img/cogenra-shawn.jpg" data-cap="Shawn at the bench on the Cogenra project, cell behind"><img src="img/cogenra-shawn.jpg" alt="" loading="lazy"></button><button type="button" aria-current="false" data-src="img/cogenra-inspection.jpg" data-cap="Red-light vision inspection station on the Cogenra Solar system"><img src="img/cogenra-inspection.jpg" alt="" loading="lazy"></button><button type="button" aria-current="false" data-src="img/cogenra-whiteboard.jpg" data-cap="The whiteboard: on-the-fly placement correction from two camera fields of view, solving the offset vector between reference and found cell positions"><img src="img/cogenra-whiteboard.jpg" alt="" loading="lazy"></button><button type="button" aria-current="false" data-src="img/cogenra-running-poster.jpg" data-cap="The Cogenra system running: SCARA placing cells under the red inspection lights (video, 51 s)" data-video="img/cogenra-running.mp4"><img src="img/cogenra-running-poster.jpg" alt="" loading="lazy"></button></div></figure>
         <header><h3>Cogenra Solar</h3><span class="num">L2F-007</span></header>
         <span class="type">Vision-guided pick-and-place · Solar</span>
-        <p>High-speed, high-accuracy pick-and-place for solar cell production: a Mitsubishi SCARA guided by Cognex vision. We believe it was the fastest and most accurate system of its kind when built, and it was the missing link that let Cogenra move to mass production. A hard project, delivered by a three-person team: Jos Goble, Peter So and me.</p>
-        <div class="result">Cogenra was acquired by <b>SunPower</b> shortly after. The second company in my career bought by SunPower; the first was PowerLight, my largest account at Mitsubishi Electric.</div>
+        <p>High-speed, high-accuracy pick-and-place for solar cell production: a Mitsubishi SCARA guided by Cognex vision. We believe it was the fastest and most accurate system of its kind when built, and it was the missing link that let Cogenra move to mass production. A hard project, delivered by a three-person team: Jos Goble, Peter So and Shawn.</p>
+        <div class="result">Cogenra was acquired by <b>SunPower</b> shortly after. The second company in Shawn's career bought by SunPower; the first was PowerLight, his largest account at Mitsubishi Electric.</div>
       </article>
 
       <article class="cell">
@@ -365,7 +416,7 @@ footer{padding:28px 0 40px}
       </article>
 
       <article class="cell">
-        <figure><img src="img/maruchan-03.jpg" alt="Me at the laptop during commissioning on the Maruchan line, hairnet and mask on the food floor" data-cap="Me at the laptop during commissioning on the Maruchan line, hairnet and mask on the food floor"><div class="thumbs"><button type="button" aria-current="true" data-src="img/maruchan-03.jpg" data-cap="Me at the laptop during commissioning on the Maruchan line, hairnet and mask on the food floor"><img src="img/maruchan-03.jpg" alt="" loading="lazy"></button><button type="button" aria-current="false" data-src="img/maruchan-01.jpg" data-cap="Bank of Mitsubishi servo amplifiers in the Maruchan control cabinet"><img src="img/maruchan-01.jpg" alt="" loading="lazy"></button><button type="button" aria-current="false" data-src="img/maruchan-instant-lunch.jpg" data-cap="Maruchan Instant Lunch, the product the line fills (photo: Maruchan)"><img src="img/maruchan-instant-lunch.jpg" alt="" loading="lazy"></button></div></figure>
+        <figure><img src="img/maruchan-03.jpg" alt="Shawn at the laptop during commissioning on the Maruchan line, hairnet and mask on the food floor" data-cap="Shawn at the laptop during commissioning on the Maruchan line, hairnet and mask on the food floor"><div class="thumbs"><button type="button" aria-current="true" data-src="img/maruchan-03.jpg" data-cap="Shawn at the laptop during commissioning on the Maruchan line, hairnet and mask on the food floor"><img src="img/maruchan-03.jpg" alt="" loading="lazy"></button><button type="button" aria-current="false" data-src="img/maruchan-01.jpg" data-cap="Bank of Mitsubishi servo amplifiers in the Maruchan control cabinet"><img src="img/maruchan-01.jpg" alt="" loading="lazy"></button><button type="button" aria-current="false" data-src="img/maruchan-instant-lunch.jpg" data-cap="Maruchan Instant Lunch, the product the line fills (photo: Maruchan)"><img src="img/maruchan-instant-lunch.jpg" alt="" loading="lazy"></button></div></figure>
         <header><h3>Maruchan</h3><span class="num">L2F-011</span></header>
         <span class="type">Controls retrofit, ingredient dispensing · Food manufacturing</span>
         <p>Replaced the antiquated control system on Maruchan's spice and ingredient dispensing line, the part that drops the shrimp and seasoning into every cup. Designed, built and tested the new multi-axis servo system offline, then had one four-day Easter weekend to tear out the old system and install ours. If the line wasn't running Monday morning, the penalties ran by the minute.</p>
@@ -379,10 +430,10 @@ footer{padding:28px 0 40px}
 <section id="products">
   <div class="wrap">
     <div class="titleblock">
-      <h2>Products shipped at Middleby</h2>
-      <div class="rev mono">Division President · 2017 – 2025<br><b>Middleby Automation</b></div>
+      <h2>Products taken to market</h2>
+      <div class="rev mono">Middleby Automation · 2017 – 2025<br><b>Shawn Lange, Division President</b></div>
     </div>
-    <p class="intro">After the acquisition, Lab2Fab became Middleby's automation arm. I ran it with full P&amp;L and took four products from concept to commercial release, selling into quick-service, fast-casual, concessions and grocery. Three of them won the National Restaurant Association's <a href="https://www.nationalrestaurantshow.com/kitchen-innovation-awards">Kitchen Innovations Award</a> three years running. Click a card to watch it run.</p>
+    <p class="intro">After the acquisition, Lab2Fab became Middleby's automation arm. Shawn ran it with full P&amp;L and took four products from concept to commercial release, selling into quick-service, fast-casual, concessions and grocery. This is what "idea to revenue" looks like inside a public company. Three of them won the National Restaurant Association's <a href="https://www.nationalrestaurantshow.com/kitchen-innovation-awards">Kitchen Innovations Award</a> three years running. Click a card to watch it run.</p>
     <div class="products">
       <article class="product">
         <a class="vid" href="https://www.youtube.com/watch?v=JqK6m4ub9TE" target="_blank" rel="noopener" aria-label="Watch Skyflo Pro on YouTube"><img src="img/yt-skyflo.jpg" alt="Skyflo Pro spout pouring a measured shot" loading="lazy"><span class="play"></span><span class="tag">VIDEO</span></a>
@@ -413,15 +464,15 @@ footer{padding:28px 0 40px}
   </div>
 </section>
 
-<section id="now">
+<section id="hyphen">
   <div class="wrap">
     <div class="titleblock">
-      <h2>Now: go-to-market at Hyphen</h2>
-      <div class="rev mono">SVP, Go-to-Market · 2026 – present<br><b>San Jose, CA</b></div>
+      <h2>Case study: Hyphen go-to-market</h2>
+      <div class="rev mono">Engagement: go-to-market lead · 2026 – present<br><b>Series A robotics · San Jose, CA</b></div>
     </div>
     <div class="now">
       <div>
-        <p class="lede2">Hyphen builds the automated makeline: the open line your team works on top, the robotic line underneath that drops the bowl, carries it under each dispenser, portions by weight and lifts it to the counter. My job is to sell it to <strong>enterprise restaurant, grocery and contract-foodservice operators</strong>, and to build the machine that sells it.</p>
+        <p class="lede2">Hyphen builds the automated makeline: the open line your team works on top, the robotic line underneath that drops the bowl, carries it under each dispenser, portions by weight and lifts it to the counter. The engagement: lead sales to <strong>enterprise restaurant, grocery and contract-foodservice operators</strong>, and build the machine that sells it, so the company owns a repeatable revenue engine rather than one person's Rolodex.</p>
         <ul>
           <li><b>Four systems of record, one operator.</b> Clay for prospect enrichment, Attio as CRM, Gmail, and NetSuite for quoting, order acceptance and invoicing. Claude is connected to all four over MCP and reads and writes in each.</li>
           <li><b>The work runs in stages.</b> Build the target list, work the conversations, keep the pipeline honest, quote it and book it. The same context carries from one stage to the next.</li>
@@ -455,18 +506,18 @@ footer{padding:28px 0 40px}
   </div>
 </section>
 
-<section id="story">
+<section id="about">
   <div class="wrap">
     <div class="titleblock">
-      <h2>The story</h2>
-      <div class="rev mono">1996 – present<br><b>Flint · San Jose · Nagoya · Fremont</b></div>
+      <h2>About the Chief Grit Officer</h2>
+      <div class="rev mono">Shawn M. Lange · Founder &amp; CGO, Brew Grit<br><b>Flint · San Jose · Nagoya · Fremont</b></div>
     </div>
     <div class="story">
       <div class="grit">
         <p class="pull">Grit is the part of the spec nobody writes down.</p>
-        <p>Every project on this page ran in the red until the customer signed off on the factory floor. Innovation at that pace is cash-flow, nerve and a team that keeps showing up.</p>
+        <p>Every project on this page ran in the red until the customer signed off on the factory floor. Innovation at that pace is cash-flow, nerve and a team that keeps showing up. That is what Brew Grit brings to a founder's table, and why the title on my card is Chief Grit Officer.</p>
         <p>I started as a Kettering co-op at Electroglas in 1996, six months in class and six months on the factory floor every year for five years, and I have never stopped working with my hands. Two engineering degrees from Kettering, a master's in robotics and controls earned part-time at Santa Clara, more than three years inside Mitsubishi Electric's motion-control group in Nagoya, and then fourteen years building Lab2Fab from an idea to an acquisition.</p>
-        <p>The through-line is the same: find the hard physical problem, build the thing that solves it, and then build the business that pays for it.</p>
+        <p>The through-line is the same: find the hard physical problem, build the thing that solves it, and then build the business that pays for it. Brew Grit exists so the next founder can borrow that experience instead of paying for it twice.</p>
       </div>
       <ol class="timeline">
         <li><span class="when">1996 – 2001</span><h3>Kettering University, with Electroglas co-op</h3><p>Kettering's co-op program: six months a year in Flint on the BSEE and BSME, six months a year at Electroglas in San Jose, rotating through IT, field service, manufacturing engineering, supplier development and product engineering. Graduated March 2001.</p></li>
@@ -479,7 +530,7 @@ footer{padding:28px 0 40px}
         <li class="key"><span class="when">2017</span><h3>Acquired by The Middleby Corporation</h3><p>Lab2Fab became the innovation arm of the world's largest commercial food-equipment company (NASDAQ: MIDD). Ran it as Division President for eight years.</p></li>
         <li><span class="when">2016 – present</span><h3>Santa Clara University</h3><p>Adjunct lecturer in business and engineering. Advisory board, Center for Innovation and Entrepreneurship. Mentor in the California Program for Entrepreneurship.</p></li>
         <li><span class="when">2025 – 2026</span><h3>Beckhoff Automation USA</h3><p>Regional Director, Northwest. Grew the region at more than 50% compound annual growth across semiconductor, robotics and energy accounts.</p></li>
-        <li class="key"><span class="when">2026 – present</span><h3>Hyphen</h3><p>SVP, Go-to-Market at the Series A company automating restaurant makelines. Investor and advisor to early-stage hardware founders through Santa Clara Ventures, the JECA Fund and Plug and Play.</p></li>
+        <li class="key"><span class="when">2026 – present</span><h3>Brew Grit</h3><p>Founded Brew Grit as a fractional-executive practice for hardware and robotics founders. Current engagement: go-to-market lead at Hyphen, the Series A company automating restaurant makelines. Investor and advisor to early-stage hardware founders through Santa Clara Ventures, the JECA Fund and Plug and Play.</p></li>
       </ol>
     </div>
     <div class="band" aria-label="Photos from the Lab2Fab years">
@@ -501,11 +552,12 @@ footer{padding:28px 0 40px}
   <div class="wrap">
     <div>
       <h2>Building something physical?<span> Let's talk.</span></h2>
-      <p class="intro" style="margin-top:20px">Advisory, speaking, board roles and the occasional hard automation problem. Based in the East Bay, often in Japan.</p>
+      <p class="intro" style="margin-top:20px">Start with a thirty-minute call. Tell us where the company is stuck: the system that will not ship, the pipeline that will not close, the round that will not come together, the hire you cannot land. We will tell you straight whether Brew Grit is the right seat to fill. Based in the East Bay, often in Japan.</p>
     </div>
     <ul class="links">
+      <li><span class="mono">Book a call</span><a href="mailto:shawn@brewgrit.com?subject=Intro%20call%20with%20Brew%20Grit">Email to schedule</a></li>
       <li><span class="mono">Email</span><a href="mailto:shawn@brewgrit.com">shawn@brewgrit.com</a></li>
-      <li><span class="mono">LinkedIn</span><a href="https://www.linkedin.com/in/shawn-m-lange-63072411/">linkedin.com/in/shawn-m-lange-63072411</a></li>
+      <li><span class="mono">LinkedIn</span><a href="https://www.linkedin.com/in/shawn-m-lange-63072411/">Shawn M. Lange, Chief Grit Officer</a></li>
       <li><span class="mono">Patents</span><a href="https://patents.google.com/?inventor=Shawn+Lange&assignee=Lab2Fab">Google Patents</a></li>
     </ul>
   </div>
@@ -515,10 +567,10 @@ footer{padding:28px 0 40px}
   <div class="wrap">
     <div class="tb mono">
       <div><img src="img/logo.png" alt="Brew Grit phoenix" style="height:56px;width:auto;display:block;margin:4px 0 8px">Website<b>BREWGRIT.COM</b></div>
-      <div>Created by<b>Shawn M. Lange</b></div>
+      <div>Chief Grit Officer<b>Shawn M. Lange</b></div>
       <div>Phoenix &amp; logos<b><a href="https://www.instagram.com/photodocs/" style="text-decoration:none">Photo Doctor Graphics</a></b></div>
-      <div>Rev<b>F · Nov 2026</b></div>
-      <div>Date<b>2026-11-06</b></div>
+      <div>Rev<b>H · Nov 2026</b></div>
+      <div>Date<b>2026-11-09</b></div>
     </div>
   </div>
 </footer>
@@ -527,7 +579,7 @@ footer{padding:28px 0 40px}
   <button type="button" id="lbClose">Close  Esc</button>
   <img id="lbImg" src="" alt="">
   <video id="lbVid" controls playsinline style="display:none;max-width:100%;max-height:calc(100% - 60px)"></video>
-  <div class="cap"><b id="lbCap"></b><span class="mono">Lab2Fab · 2011 – 2017</span></div>
+  <div class="cap"><b id="lbCap"></b><span class="mono">Brew Grit · brewgrit.com</span></div>
 </div>
 <script>
 (function(){
